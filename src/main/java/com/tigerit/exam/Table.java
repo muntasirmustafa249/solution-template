@@ -148,6 +148,23 @@ public class Table{
                     
                     Collections.swap(table.data, c, d);
                 }
+                else if(numbersInRows[c].compareTo(numbersInRows[d]) == 0)
+                {
+                    int[] row1 = table.data.get(c);
+                    int[] row2 = table.data.get(d);
+                    
+                    for(int x = 0;x < columnNum;x++)
+                    {
+                        String num1 = "" + row1[x];
+                        String num2 = "" + row2[x];
+                        
+                        if(num1.compareTo(num2) > 0)
+                        {
+                            Collections.swap(table.data, c, d);
+                            break;
+                        }
+                    }
+                }
             }
         }
         
