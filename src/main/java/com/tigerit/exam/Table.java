@@ -124,21 +124,29 @@ public class Table{
         int rowNum = table.getRowNum();
         int columnNum = table.getColumnNum();
         
+        String[] numbersInRows = new String[rowNum];
+        
+        for(int x = 0;x < rowNum;x++)
+        {
+            numbersInRows[x] = "";
+            int[] row = table.data.get(x);
+            for(int y = 0;y < columnNum;y++)
+            {
+                numbersInRows[x] = numbersInRows[x] + row[y];
+            }
+        }
+        
         for(int c = 0;c < (rowNum - 1);c++)
         {
             for(int d = 0;d < (rowNum - c - 1);d++)
             {
-                int[] row1 = table.data.get(c);
-                int[] row2 = table.data.get(d);
-                for(int x = 0;x < columnNum;x++)
+                if(numbersInRows[c].compareTo(numbersInRows[d]) > 0)
                 {
-                    if(row1[x] > row2[x])
-                    {
-                        Collections.swap(table.data, c, d);
-                        break;
-                    }
-                    else if(row1[x] < row2[x])
-                        break;
+                    String temp = numbersInRows[c];
+                    numbersInRows[c] = numbersInRows[d];
+                    numbersInRows[d] = temp;
+                    
+                    Collections.swap(table.data, c, d);
                 }
             }
         }
