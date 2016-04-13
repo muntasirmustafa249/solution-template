@@ -163,6 +163,7 @@ public class Table{
                             Collections.swap(table.data, c, d);
                             break;
                         }
+                        else if(num1.compareTo(num2) < 0) break;
                     }
                 }
             }
