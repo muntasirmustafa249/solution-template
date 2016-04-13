@@ -124,9 +124,9 @@ public class Table{
         int rowNum = table.getRowNum();
         int columnNum = table.getColumnNum();
         
-        String[] numbersInRows = new String[rowNum];
+        //String[] numbersInRows = new String[rowNum];
         
-        for(int x = 0;x < rowNum;x++)
+        /*for(int x = 0;x < rowNum;x++)
         {
             numbersInRows[x] = "";
             int[] row = table.data.get(x);
@@ -134,13 +134,14 @@ public class Table{
             {
                 numbersInRows[x] = numbersInRows[x] + row[y];
             }
-        }
+        }*/
         
         for(int c = 0;c < (rowNum - 1);c++)
         {
+            int[] row1 = table.data.get(c);
             for(int d = 0;d < (rowNum - c - 1);d++)
             {
-                if(numbersInRows[c].compareTo(numbersInRows[d]) > 0)
+                /*if(numbersInRows[c].compareTo(numbersInRows[d]) > 0)
                 {
                     String temp = numbersInRows[c];
                     numbersInRows[c] = numbersInRows[d];
@@ -149,8 +150,8 @@ public class Table{
                     Collections.swap(table.data, c, d);
                 }
                 else if(numbersInRows[c].compareTo(numbersInRows[d]) == 0)
-                {
-                    int[] row1 = table.data.get(c);
+                {*/
+                    
                     int[] row2 = table.data.get(d);
                     
                     for(int x = 0;x < columnNum;x++)
@@ -165,7 +166,7 @@ public class Table{
                         }
                         else if(num1.compareTo(num2) < 0) break;
                     }
-                }
+                //}
             }
         }
         
